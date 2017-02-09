@@ -1,8 +1,30 @@
 var Stack = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+  var instance = {
+    sizeCount: 0,
+    storage: {},
+    temp: 0
+  };
+
+  _.extend(instance, stackMethods);
+  return instance;
 };
 
-var stackMethods = {};
-
+var stackMethods = {
+  size: function() {
+    if (this.sizeCount < 0) {
+      this.sizeCount = 0;
+    }
+    return this.sizeCount;
+  },
+  push: function(value) {
+    this.storage[this.sizeCount] = value;
+    this.sizeCount++;
+  },
+  pop: function() {
+    this.sizeCount--;
+    this.temp = this.storage[this.sizeCount];
+    delete this.storage[this.sizeCount];
+    return this.temp;
+  }
+};
 

@@ -123,6 +123,7 @@ define([
       it('reports a size of 1 after adding two items and removing one', function() {
         queue.enqueue('a');
         queue.enqueue('b');
+
         queue.dequeue();
         expect(queue.size()).to.equal(1);
       });
