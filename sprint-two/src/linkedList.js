@@ -29,7 +29,7 @@ var LinkedList = function() {
       if (current.value === target) {
         return true;
       } else if (current.next !== null) {
-        current = current.next; // head {value: 4, next: Object}  -->  tail {value: 5, next: null}
+        current = current.next;
       } else {
         return false;
       }

@@ -2,21 +2,32 @@ var Tree = function(value) {
   var newTree = {};
   newTree.value = value;
 
-  // your code here
-  newTree.children = null;  // fix me
+  _.extend(newTree, treeMethods);
+
+  newTree.children = [];
 
   return newTree;
 };
 
-var treeMethods = {};
-
-treeMethods.addChild = function(value) {
+var treeMethods = {
+  addChild: function(value) {
+    this.children.push(Tree(value));
+  },
+  contains: function(target) {
+    var wasFound = false;
+    var recursiveContains = function(parent) {
+      if (parent.value === target) {
+        wasFound = true;
+      } else {
+        parent.children.forEach(function(newParent) {
+          recursiveContains(newParent);
+        });
+      }
+    };
+    recursiveContains(this);
+    return wasFound;
+  }
 };
-
-treeMethods.contains = function(target) {
-};
-
-
 
 /*
  * Complexity: What is the time complexity of the above functions?
