@@ -10,10 +10,10 @@ var Tree = function(value) {
 };
 
 var treeMethods = {
-  addChild: function(value) {
+  addChild: function(value) { // O(1)
     this.children.push(Tree(value));
   },
-  contains: function(target) {
+  contains: function(target) { // O(n)
     var wasFound = false;
     var recursiveContains = function(parent) {
       if (parent.value === target) {
@@ -32,3 +32,4 @@ var treeMethods = {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
