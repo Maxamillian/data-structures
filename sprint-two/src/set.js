@@ -1,6 +1,6 @@
 var Set = function() {
   var set = Object.create(setPrototype);
-  set._storage = {}; // fix me
+  set._storage = {};
   return set;
 };
 
@@ -12,7 +12,7 @@ setPrototype.add = function(item) { // O(1)
 
 setPrototype.contains = function(item) { // O(n)
   var wasFound = false;
-  for(var key in this._storage) {
+  for (var key in this._storage) {
     if (this._storage[key] === item) {
       wasFound = true;
     }
